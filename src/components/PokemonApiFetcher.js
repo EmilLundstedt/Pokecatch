@@ -70,7 +70,7 @@ const [pokeDex, setPokeDex] = useState([])
         <div className="pokedexCard">
             <div className={pokemon.isCaught.toString()}>
                 <h3>{pokemon.name} </h3> 
-                <h3> {pokemon.isCaught.toString()} </h3>
+                
                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}/>
             </div>
              
