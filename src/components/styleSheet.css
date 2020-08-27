@@ -1,0 +1,90 @@
+html{
+   
+    background-color: rgb(227, 227, 248);
+    margin: auto;
+    
+    
+    font-style: Courier;
+}
+h1,h2{
+    margin:0px;
+}
+.encounterArea {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top:40px;
+    margin-bottom: 40px;
+    align-items: center;
+    letter-spacing: 2px;
+    
+   
+    background-color: rgb(240, 106, 106);
+    padding-bottom: 20px;
+   
+    text-transform: uppercase;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px 5px rgba(161, 161, 161, 0.863);
+}
+.encounterArea, h2 {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    
+}
+.encounterArea h4{
+    font-size:15px;
+}
+.pokemonImg img{
+    position: relative;
+    
+    width: 250px;
+    height: 250px;
+    z-index: 1;
+    animation: fadeIn 3s;
+}
+
+
+.pokemonImg {
+    
+    position: relative;
+    animation: fadeIn 1s;
+   
+}
+
+
+
+.pokemonImg .ellipse {
+    
+    position: absolute;
+    z-index: 0;
+    bottom:10%;
+    background-color: rgba(104, 102, 102, 0.253);
+    min-height: 120px;
+    min-width: 250px;
+    border-radius: 50%;
+    
+    
+    
+    
+
+}
+
+.pokemonCard {
+
+
+
+padding:10px;
+border-top:rgb(255, 255, 255) solid 6px;
+
+
+height: 100%;
+margin-bottom: 60px;
+
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    
+    100% {opacity:1;}
+    }
