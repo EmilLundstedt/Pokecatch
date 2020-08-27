@@ -77,27 +77,41 @@ const [pokeDex, setPokeDex] = useState([])
     </div>);  
 
 const catchPokemon = () => {
-    console.log(pokemon.id)
+    
+    
     let targetedPokemon = pokeDex.find(p=> p.id == pokemon.id);
     targetedPokemon.isCaught = true;
 
     pokeDex.splice(pokemon.id,0)
-
-    
     
     
     encounterPokemon()
+    
 }
 
+const countPokemons = () => {
+    var count = 0;
+    for (var i = 0; i < pokeDex.length; i++){
+        if(pokeDex[i].isCaught.toString() == "true"){
+            count++
+        }
+    }
+    return count
+}
 
+    
     return (
         <div>
             <wildPokemon.Provider value={pokemon}>
                 <PokemonInformation/>
                 <Button variant="contained" className="button" onClick={catchPokemon}>Catch</Button>
             </wildPokemon.Provider>
-            <div className="pokedex">{listItems}</div>
+            <div>
+                 {countPokemons() + "/ 152"}
+            </div>
+           <div className="pokedex">{listItems}</div>
            
+            
             
         </div>
     )
