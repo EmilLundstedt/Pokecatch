@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import PokemonInformation from './PokemonInformation'
 import Pokedex from './Pokedex'
+import Button from '@material-ui/core/Button';
 
 export const wildPokemon = React.createContext()
 export const pokeDexInfo = React.createContext()
@@ -67,23 +68,36 @@ const [pokeDex, setPokeDex] = useState([])
     const listItems = pokeDex.map((pokemon) => 
         
         <div className="pokedexCard">
-            <div>
+            <div className={pokemon.isCaught.toString()}>
                 <h3>{pokemon.name} </h3> 
+                <h3> {pokemon.isCaught.toString()} </h3>
                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}/>
             </div>
              
     </div>);  
+
+const catchPokemon = () => {
+    console.log(pokemon.id)
+    let targetedPokemon = pokeDex.find(p=> p.id == pokemon.id);
+    targetedPokemon.isCaught = true;
+
+    pokeDex.splice(pokemon.id,0)
+
+    
+    
+    
+    encounterPokemon()
+}
 
 
     return (
         <div>
             <wildPokemon.Provider value={pokemon}>
                 <PokemonInformation/>
+                <Button variant="contained" className="button" onClick={catchPokemon}>Catch</Button>
             </wildPokemon.Provider>
             <div className="pokedex">{listItems}</div>
-            <pokeDexInfo.Provider value={[pokeDex]}>
-                <Pokedex />
-            </pokeDexInfo.Provider>
+           
             
         </div>
     )

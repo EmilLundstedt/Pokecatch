@@ -108,8 +108,8 @@ margin-bottom: 60px;
         min-width: 150px;
         min-height: 150px;
     }
-    .pokedexCard img{
+   
+    .pokedexCard .false {
         filter: brightness(0%);
-        width: 75px;
-        height: 75px;
+       
     }
