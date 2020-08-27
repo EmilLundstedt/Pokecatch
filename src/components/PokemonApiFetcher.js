@@ -1,29 +1,38 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import PokemonInformation from './PokemonInformation'
+import Pokedex from './Pokedex'
 
-export const UserContext = React.createContext()
+export const wildPokemon = React.createContext()
+export const pokeDexInfo = React.createContext()
 
 function PokemonApiFetcher() {
 
-    const [pokeDex, setPokeDex] = useState([{}])
-    let id = 0;
+    
+    
+const [pokeDex, setPokeDex] = useState([])
 
-    const fetchPokedex = () => {
-        
+
+    const fetchPokeDex = () => {
+        const addPokedex = (newObj) => setPokeDex(pokeDex => [...pokeDex, newObj])
+        let id = 0;
         axios   
             .get('https://pokeapi.co/api/v2/pokemon?limit=151')
             .then(response => {
                 response.data.results.map((pokemon)=> {
-                    id = id + 1;
+                    id ++;
+                    const newObj = {id: id, name: pokemon.name, isCaught: false}
                    
-                    return setPokeDex([...pokeDex, {id: id, name: pokemon.name, isCaught: false}])
+                   
+                    return addPokedex(newObj)
+                   
                    
                 })
             })
             
     }
-
+  
+    
     
     const [catched, setCatched] = useState([])
     const [pokemon, setPokemon] = useState({})
@@ -37,10 +46,11 @@ function PokemonApiFetcher() {
 
     useEffect(() => {
 
-        fetchPokedex()
-        console.log(pokeDex)
-       }, [])
+        fetchPokeDex()
+       
+       },[] )
    
+
     const randomPokemon = () => {
         return Math.floor(Math.random() * 151) + 1
     }
@@ -53,14 +63,28 @@ function PokemonApiFetcher() {
             })
     }
    
-
     
+    const listItems = pokeDex.map((pokemon) => 
+        
+        <div className="pokedexCard">
+            <div>
+                <h3>{pokemon.name} </h3> 
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}/>
+            </div>
+             
+    </div>);  
+
+
     return (
         <div>
-            <UserContext.Provider value={pokemon}>
+            <wildPokemon.Provider value={pokemon}>
                 <PokemonInformation/>
-                
-            </UserContext.Provider>
+            </wildPokemon.Provider>
+            <div className="pokedex">{listItems}</div>
+            <pokeDexInfo.Provider value={[pokeDex]}>
+                <Pokedex />
+            </pokeDexInfo.Provider>
+            
         </div>
     )
 }

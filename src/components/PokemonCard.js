@@ -1,9 +1,9 @@
 import React, {useContext} from 'react'
-import {UserContext}from './PokemonApiFetcher'
+import {wildPokemon}from './PokemonApiFetcher'
 import './styleSheet.css'
 
 function PokemonCard() {
-    const pokemon = useContext(UserContext)
+    const pokemon = useContext(wildPokemon)
     return (
         <div className="pokemonCard">
             <h2 className="pokemonClass">{pokemon.name}</h2>
