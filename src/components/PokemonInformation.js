@@ -2,22 +2,22 @@ import React from 'react'
 import './styleSheet.css'
 
 import PokemonCard from './PokemonCard';
-import Pokedex from './Pokedex'
+
 
 function PokemonInformation() {
 
-    
+
 
     return (
         <div>
             <div className="encounterArea">
                 <h1>Encounter</h1>
-                <PokemonCard/>
-                
+                <PokemonCard />
+
             </div>
 
             <div className="pokedexArea">
-                <Pokedex/>
+
 
             </div>
         </div>

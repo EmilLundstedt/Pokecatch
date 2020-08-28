@@ -1,5 +1,5 @@
-import React, {useContext} from 'react'
-import {wildPokemon}from './PokemonApiFetcher'
+import React, { useContext } from 'react'
+import { wildPokemon } from './PokemonApiFetcher'
 import './styleSheet.css'
 
 function PokemonCard() {
@@ -8,8 +8,8 @@ function PokemonCard() {
         <div className="pokemonCard">
             <h2 className="pokemonClass">{pokemon.name} {pokemon.id}</h2>
             <div className="pokemonImg">
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}/>
-                <div className="ellipse"/>
+                <img alt="sprite" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />
+                <div className="ellipse" />
             </div>
         </div>
     )
