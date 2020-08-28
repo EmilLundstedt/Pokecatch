@@ -12,6 +12,12 @@ h1,
 h2 {
     margin: 0px;
 }
+
+header {
+    font-size: 40px;
+    color: rgb(240, 106, 106);
+    text-shadow: rgb(129, 54, 54) 0px 3px;
+}
 .equationField h2 {
     color: black;
 }
@@ -42,7 +48,7 @@ h2 {
 }
 .encounterArea,
 h2 {
-    color: rgb(255, 255, 255);
+    color: rgb(230, 213, 213);
     font-size: 25px;
 }
 .encounterArea h4 {
@@ -66,7 +72,7 @@ h2 {
     position: absolute;
     z-index: 0;
     bottom: 10%;
-    background-color: rgba(104, 102, 102, 0.253);
+    background-color: rgba(104, 102, 102, 0.438);
     min-height: 120px;
     min-width: 250px;
     border-radius: 50%;
@@ -89,6 +95,16 @@ h2 {
     }
 }
 
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+    }
+
+    0% {
+        opacity: 1;
+    }
+}
+
 @keyframes brightIn {
     0% {
         filter: brightness(0%);
@@ -104,7 +120,7 @@ h2 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: rgb(89, 112, 153);
+    background-color: rgb(106, 133, 179);
     margin: 5%;
     padding: 20px;
     box-shadow: 0px 0px 5px 5px rgba(161, 161, 161, 0.863);
@@ -126,4 +142,100 @@ h2 {
 }
 .pokedexCard .false {
     filter: brightness(0%);
+}
+
+input {
+    background-color: transparent;
+    width: 100px;
+    height: 50px;
+    font-size: 33px;
+    outline: none;
+    border: none;
+}
+.main {
+    position: relative;
+}
+.correct {
+    position: absolute;
+    z-index: 1;
+    top: 30%;
+    left: 25%;
+    transform: rotateY(0deg) rotate(-45deg);
+    width: 50%;
+    height: 100px;
+    display: block;
+    animation: fadeOut 2s;
+}
+
+.button {
+    background-color: #79db68;
+    border: none;
+    color: rgb(241, 235, 235);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 40px;
+    outline: none;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.button:focus {
+    background-color: #90b38a;
+}
+
+.correct h2 {
+    color: rgb(92, 195, 92);
+    text-shadow: -4px 0 rgb(255, 255, 255), 0 4px rgb(255, 255, 255), 4px 0 rgb(255, 255, 255),
+        0 -4px rgb(255, 255, 255);
+    font-size: 100px;
+}
+
+.box {
+    width: 200px;
+    margin: 50px;
+    background: #ffffff;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    font-weight: 1200;
+    color: rgb(0, 0, 0);
+    font-family: arial;
+    position: relative;
+    border-radius: 10px;
+}
+
+.sb4:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #ffffff;
+    border-top: 10px solid #ffffff;
+    border-bottom: 10px solid transparent;
+    right: 19px;
+    bottom: -19px;
+}
+
+.speak {
+    position: absolute;
+    z-index: 0;
+    bottom: 50%;
+    right: 75%;
+    font-size: 40px;
+}
+
+.progress-bar {
+    height: 15px;
+    background: #e45858;
+
+    width: 300px;
+}
+
+.progress-bar-fill {
+    display: block;
+    height: 15px;
+    width: 0px;
+    background: #5ac55a;
 }

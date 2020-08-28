@@ -1,11 +1,14 @@
 import React from 'react';
+import Header from './components/Header';
+import MainPage from './components/MainPage'
+
 import './App.css';
-import PokemonApiFetcher from './components/PokemonApiFetcher';
 
 function App() {
   return (
     <div className="App">
-      <PokemonApiFetcher />
+      <Header/>
+      <MainPage/>
     </div>
   );
 }
