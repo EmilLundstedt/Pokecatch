@@ -6,9 +6,23 @@ html{
     
     text-transform: uppercase;
     font-style: Courier;
+    height: 100%;
+    width: 100%;
 }
 h1,h2{
     margin:0px;
+}
+.equationField h2 {
+    color: black;
+}
+.equationField .textfield{
+    font-weight: bold;
+}
+.equationField .textfield:focus{
+    border-bottom: 1px solid #03a9f4;
+    -webkit-box-shadow: 0 1px 0 0 #03a9f4;
+    -moz-box-shadow: 0 1px 0 0 #03a9f4;
+    box-shadow: 0 1px 0 0 #03a9f4;
 }
 .encounterArea {
     display: flex;
@@ -17,7 +31,7 @@ h1,h2{
     margin-top:40px;
     margin-bottom: 40px;
     align-items: center;
-    
+    max-height: 20%;
     
    
     background-color: rgb(240, 106, 106);
@@ -79,7 +93,6 @@ padding:10px;
 border-top:rgb(255, 255, 255) solid 6px;
 
 
-height: 100%;
 margin-bottom: 60px;
 
 }
@@ -112,16 +125,21 @@ margin-bottom: 60px;
        
     }
     .pokedexCard{
-       
+       font-size: 10px;
         background-color:rgb(211, 209, 209);
         border: 2px solid black;
         margin:5px;
-        min-width: 150px;
-        min-height: 150px;
+        max-width: 100px;
+        min-height: 100px;
+    }
+    .pokedexCard img{
+        min-width: 100px;
+        border-top: black solid 2px;
+
     }
     .pokedexCard .true{
-        animation: brightIn 0.5s;
-        
+        animation: brightIn 2s;
+       
         
     }
     .pokedexCard .false {
