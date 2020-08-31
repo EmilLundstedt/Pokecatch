@@ -4,6 +4,9 @@ import './styleSheet.css'
 import PokemonList from './PokemonList'
 
 function MainPage() {
+    
+    
+    
     return (
         <div >
             <PokemonList />

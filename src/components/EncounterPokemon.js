@@ -7,10 +7,11 @@ import './styleSheet.css'
 
 
 
-function EncounterPokemon({ pokeDex, setPokeDex }) {
+function EncounterPokemon({ pokeDex, setPokeDex, count }) {
 
     const [wildPokemon, setWildPokemon] = useState({})
     const [equation, setequation] = useState({})
+    
 
     const inputRef = useRef(null)
 
@@ -22,28 +23,37 @@ function EncounterPokemon({ pokeDex, setPokeDex }) {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            encounterWildPokemon()
-            console.log("Pokemon Fled!")
-        }, 5000);
+            catchPokemon()
+        }, 5000 +(count*100));
         return () => clearTimeout(timer);
-    }, [wildPokemon]);
+    }, [wildPokemon,count]);
 
 
     // API call to Encounter random wild Pokemon---
     function encounterWildPokemon() {
+
+
         getMathFunction()
         axios
             .get('https://pokeapi.co/api/v2/pokemon/' + (Math.floor(Math.random() * 151) + 1))
             .then(response => {
+               
                 setWildPokemon(response.data)
+                
+               
             })
+            
     }
+
+
+    
 
     //Get Math function to solve
     const getMathFunction = () => {
         resetFieldFocusInput()
-        const val1 = Math.floor(Math.random() * 4) + 1
-        const val2 = Math.floor(Math.random() * 5) + 1
+        
+        const val1 = Math.floor(Math.random() * (5)) + count
+        const val2 = Math.floor(Math.random() * 5) + count
         const summary = val1 + val2;
         setequation({ string: val1 + "+" + val2, summary: summary })
 
@@ -59,11 +69,14 @@ function EncounterPokemon({ pokeDex, setPokeDex }) {
     // on Catch functionality
     const catchPokemon = () => {
         if (document.getElementById("textfield").value.toString() === equation.summary.toString()) {
-
+          
+            
             pokeDex.find(pokemonList => pokemonList.id === wildPokemon.id).isCaught = true
             setPokeDex([...pokeDex])
+           
 
         }
+        
         encounterWildPokemon()
         getMathFunction()
 
@@ -72,8 +85,9 @@ function EncounterPokemon({ pokeDex, setPokeDex }) {
 
     return (
         <div className="main">
+            
             <WildPokemonCard pokemon={wildPokemon} equation={equation.string} />
-
+            
 
             <div className="equationField">
                 <h2>

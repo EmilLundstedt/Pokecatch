@@ -120,10 +120,8 @@ h2 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: rgb(106, 133, 179);
-    margin: 5%;
-    padding: 20px;
-    box-shadow: 0px 0px 5px 5px rgba(161, 161, 161, 0.863);
+    background-color: rgba(68, 108, 172, 0.801);
+   
 }
 .pokedexCard {
     font-size: 10px;
@@ -136,9 +134,11 @@ h2 {
 .pokedexCard img {
     min-width: 100px;
     border-top: black solid 2px;
+    
 }
 .pokedexCard .true {
     animation: brightIn 2s;
+    
 }
 .pokedexCard .false {
     filter: brightness(0%);
@@ -178,6 +178,7 @@ input {
     outline: none;
     font-weight: bold;
     letter-spacing: 4px;
+    margin:20px;
 }
 
 .button:focus {
@@ -192,7 +193,7 @@ input {
 }
 
 .box {
-    width: 200px;
+    width: 150px;
     margin: 50px;
     background: #ffffff;
     padding-left: 15px;
@@ -238,4 +239,18 @@ input {
     height: 15px;
     width: 0px;
     background: #5ac55a;
+}
+
+.container{
+    
+    
+    margin-top: 40px;
+    color: rgb(12, 12, 12);
+    font-size: 45px;
+}
+.container button{
+
+    background-color: rgba(168, 165, 165, 0.527);
+   
+    
 }

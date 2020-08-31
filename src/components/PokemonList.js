@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import EncounterPokemon from './EncounterPokemon'
 import './styleSheet.css'
+import PokeDex from './Pokedex'
 
 function PokemonList() {
     const [pokeDex, setPokeDex] = useState([])
     const [count, setCount] = useState(0)
+    const [display, setDisplay] = useState(true);
 
     useEffect(() => {
 
@@ -25,6 +27,7 @@ function PokemonList() {
 
     // API call to fetch the pokemons---
     const createPokeDex = () => {
+        
         const addToPokeDex = (newObj) => setPokeDex(pokeDex => [...pokeDex, newObj])
         let id = 0;
         axios
@@ -54,13 +57,18 @@ function PokemonList() {
 
     return (
         <div>
-            <EncounterPokemon pokeDex={pokeDex} setPokeDex={setPokeDex} />
+            <EncounterPokemon pokeDex={pokeDex} setPokeDex={setPokeDex} count={count} />
+        
+            <div className="container">
             <h1> {count} / 152 </h1>
-            <div className="pokedex">
-                {listPokemons()}
+                <div>
+                    <button className="button" onClick={() => setDisplay(!display)}> Toggle PokeDex</button>
+                    
+                </div>
+                 {display? <PokeDex list={listPokemons()}/> : ""}
             </div>
-
-
+           
+            
         </div>
     )
 }
