@@ -8,7 +8,7 @@ function EncounterPokemon({ pokeDex, setPokeDex, count, loaded }) {
 
     const [wildPokemon, setWildPokemon] = useState({})
     const [equation, setequation] = useState({})
-    const [display, setDisplay] = useState(true);
+    const [display, setDisplay] = useState(false);
 
     const inputRef = useRef(null)
 

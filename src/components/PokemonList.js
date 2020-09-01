@@ -7,7 +7,7 @@ import PokeDex from './Pokedex'
 function PokemonList() {
     const [pokeDex, setPokeDex] = useState([])
     const [count, setCount] = useState(0)
-    const [display, setDisplay] = useState(true);
+    const [display, setDisplay] = useState(false);
     const [Loaded, setLoaded] = useState(false);
     const [Timer, setTimer] = useState(0);
 
@@ -78,9 +78,9 @@ function PokemonList() {
             <div className="container">
                 <h1> {count} / 151 </h1>
                 <h2 className="timer"> {Timer} </h2>
-                <div className="remover">
+                
                     <button className="button" onClick={() => setDisplay(!display)}> Toggle PokeDex</button>
-                </div>
+                
                 {display ? <PokeDex list={listPokemons()} /> : ""}
             </div>
 
