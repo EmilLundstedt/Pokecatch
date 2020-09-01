@@ -3,6 +3,7 @@ import React from 'react'
 function Rules() {
     return (
         <div className="rule">
+            
             <h3>1. Catch pokemons by answering their math questions!</h3>
             <h3>2. think fast because the pokemons will flee.</h3>
             <h3>3. The more pokemons you catch the harder the questions!</h3>

@@ -1,8 +1,10 @@
 import React from 'react'
 import './styleSheet.css'
-import Rules from './Rules'
 
-function WildPokemonCard({ pokemon, equation }) {
+
+function WildPokemonCard({ pokemon, equation}) {
+    
+
     if(pokemon.id === undefined){
         return "Loading pokemons..."
     }
@@ -16,6 +18,9 @@ function WildPokemonCard({ pokemon, equation }) {
                 <div className="pokemonImg">
                     <img alt="sprite" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />
                     <div className="ellipse" />
+                    
+                    
+                    
                     <div className="speak">
                         <div className="box sb4">
                             {equation}

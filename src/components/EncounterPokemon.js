@@ -9,6 +9,7 @@ function EncounterPokemon({ pokeDex, setPokeDex, count, loaded }) {
     const [wildPokemon, setWildPokemon] = useState({})
     const [equation, setequation] = useState({})
     const [display, setDisplay] = useState(false);
+   
 
     const inputRef = useRef(null)
 
@@ -30,14 +31,16 @@ function EncounterPokemon({ pokeDex, setPokeDex, count, loaded }) {
         const timer = setTimeout(() => {
            
             catchPokemon()
+            
         }, 5000 + (count * 100));
         return () => clearTimeout(timer);
     }, [wildPokemon, count]);
 
-
+   
 
 // encounter new pokemon based on pokedex. randomises number untill the pokemon hasnt been caught.
     function EncounterNewPokemon() {
+        
         getMathFunction()
         var randomNum = (Math.floor(Math.random() * 151) + 1)
         var encountered = pokeDex.find(pokemonList => pokemonList.id === randomNum)
@@ -72,6 +75,7 @@ function EncounterPokemon({ pokeDex, setPokeDex, count, loaded }) {
         if (document.getElementById('textfield').value == equation.summary) {
             pokeDex.find(pokemonList => pokemonList.id === wildPokemon.id).isCaught = true
             setPokeDex([...pokeDex])
+            
             console.log("Catched Pokemon!")
         }
         EncounterNewPokemon()
@@ -81,12 +85,12 @@ function EncounterPokemon({ pokeDex, setPokeDex, count, loaded }) {
     return (
         <div className="main">
            
-            <WildPokemonCard pokemon={wildPokemon} equation={equation.string} />
+            <WildPokemonCard pokemon={wildPokemon} equation={equation.string}/>
                 <div className="remover">
                    <button className="button" onClick={() => setDisplay(!display)}> Help</button>
                 </div>
                 {display ? <Rules/> : ""}
-            
+                
             
             <div className="equationField">
             
