@@ -8,6 +8,7 @@ function PokemonList() {
     const [pokeDex, setPokeDex] = useState([])
     const [count, setCount] = useState(0)
     const [display, setDisplay] = useState(true);
+    const [Loaded, setLoaded] = useState(false);
 
     useEffect(() => {
 
@@ -16,17 +17,24 @@ function PokemonList() {
     }, [])
 
     useEffect(() => {
-
+       
         for (var i = 0; i < pokeDex.length; i++) {
-            if (pokeDex[i].isCaught.toString() === "true") {
+            if (pokeDex[i].isCaught == true) {
                 setCount(count + 1)
             }
         }
-
+    
     }, [pokeDex])
 
+    useEffect(() => {
+        if (Loaded){
+            console.log(Loaded)
+
+        }
+    }, [Loaded])
+
     // API call to fetch the pokemons---
-    const createPokeDex = () => {
+    function createPokeDex () {
         
         const addToPokeDex = (newObj) => setPokeDex(pokeDex => [...pokeDex, newObj])
         let id = 0;
@@ -36,9 +44,12 @@ function PokemonList() {
                 response.data.results.map((pokemon) => {
                     id++;
                     const newObj = { id: id, name: pokemon.name, isCaught: false }
+                   
                     return addToPokeDex(newObj)
                 })
+                setLoaded(true)
             })
+ 
     }
 
     //Map through PokeDex and list them as items.
@@ -57,7 +68,7 @@ function PokemonList() {
 
     return (
         <div>
-            <EncounterPokemon pokeDex={pokeDex} setPokeDex={setPokeDex} count={count} />
+            <EncounterPokemon pokeDex={pokeDex} setPokeDex={setPokeDex} count={count} loaded={Loaded} />
         
             <div className="container">
             <h1> {count} / 152 </h1>

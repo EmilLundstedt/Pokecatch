@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
 import WildPokemonCard from './WildPokemonCard'
 import './styleSheet.css'
 
@@ -7,7 +6,7 @@ import './styleSheet.css'
 
 
 
-function EncounterPokemon({ pokeDex, setPokeDex, count }) {
+function EncounterPokemon({ pokeDex, setPokeDex, count, loaded }) {
 
     const [wildPokemon, setWildPokemon] = useState({})
     const [equation, setequation] = useState({})
@@ -16,44 +15,47 @@ function EncounterPokemon({ pokeDex, setPokeDex, count }) {
     const inputRef = useRef(null)
 
     useEffect(() => {
-
-        encounterWildPokemon()
-
-    }, [])
+        if (loaded){
+            EncounterNewPokemon()
+        }
+        
+    }, [loaded])
 
     useEffect(() => {
         const timer = setTimeout(() => {
             catchPokemon()
-        }, 5000 +(count*100));
+        }, 3000 +(count*100));
         return () => clearTimeout(timer);
     }, [wildPokemon,count]);
 
 
-    // API call to Encounter random wild Pokemon---
-    function encounterWildPokemon() {
+    
 
-
+    function EncounterNewPokemon() {
         getMathFunction()
-        axios
-            .get('https://pokeapi.co/api/v2/pokemon/' + (Math.floor(Math.random() * 151) + 1))
-            .then(response => {
-               
-                setWildPokemon(response.data)
-                
-               
-            })
-            
+        var randomNum = (Math.floor(Math.random() * 151) + 1)
+        var encountered = pokeDex.find(pokemonList => pokemonList.id === randomNum)
+
+        while (encountered.isCaught){
+            console.log(encountered)
+            console.log("The encountered Pokemon has already been caught, reroll.")
+            randomNum = (Math.floor(Math.random() * 151) + 1)
+            encountered = pokeDex.find(pokemonList => pokemonList.id === randomNum)
+        }
+       
+        setWildPokemon(encountered)
+        
     }
 
-
+  
     
 
     //Get Math function to solve
     const getMathFunction = () => {
         resetFieldFocusInput()
         
-        const val1 = Math.floor(Math.random() * (5)) + count
-        const val2 = Math.floor(Math.random() * 5) + count
+        const val1 = Math.floor(Math.random() * 2) + count
+        const val2 = Math.floor(Math.random() * 2) + count
         const summary = val1 + val2;
         setequation({ string: val1 + "+" + val2, summary: summary })
 
@@ -68,17 +70,16 @@ function EncounterPokemon({ pokeDex, setPokeDex, count }) {
 
     // on Catch functionality
     const catchPokemon = () => {
-        if (document.getElementById("textfield").value.toString() === equation.summary.toString()) {
-          
+        if (document.getElementById('textfield').value == equation.summary) {
             
             pokeDex.find(pokemonList => pokemonList.id === wildPokemon.id).isCaught = true
             setPokeDex([...pokeDex])
-           
+            console.log("Catched Pokemon!")
 
         }
         
-        encounterWildPokemon()
-        getMathFunction()
+        EncounterNewPokemon()
+       
 
     }
 
@@ -86,7 +87,7 @@ function EncounterPokemon({ pokeDex, setPokeDex, count }) {
     return (
         <div className="main">
             
-            <WildPokemonCard pokemon={wildPokemon} equation={equation.string} />
+            <WildPokemonCard pokemon={wildPokemon} equation={equation.string}  />
             
 
             <div className="equationField">

@@ -5,7 +5,7 @@ import PokemonList from './PokemonList'
 
 function MainPage() {
     
-    
+
     
     return (
         <div >
