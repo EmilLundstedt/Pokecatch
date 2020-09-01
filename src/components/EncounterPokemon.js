@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import WildPokemonCard from './WildPokemonCard'
+import Rules from './Rules'
 import './styleSheet.css'
+
 
 function EncounterPokemon({ pokeDex, setPokeDex, count, loaded }) {
 
     const [wildPokemon, setWildPokemon] = useState({})
     const [equation, setequation] = useState({})
+    const [display, setDisplay] = useState(true);
 
     const inputRef = useRef(null)
 
@@ -75,11 +78,18 @@ function EncounterPokemon({ pokeDex, setPokeDex, count, loaded }) {
     }
 
 
-
     return (
         <div className="main">
+           
             <WildPokemonCard pokemon={wildPokemon} equation={equation.string} />
+                <div className="remover">
+                   <button className="button" onClick={() => setDisplay(!display)}> Help</button>
+                </div>
+                {display ? <Rules/> : ""}
+            
+            
             <div className="equationField">
+            
                 <h2>
                     <input autoComplete="off" ref={inputRef} className="texfield" id="textfield" />
                 </h2>

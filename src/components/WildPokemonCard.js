@@ -1,5 +1,6 @@
 import React from 'react'
 import './styleSheet.css'
+import Rules from './Rules'
 
 function WildPokemonCard({ pokemon, equation }) {
     if(pokemon.id === undefined){
@@ -7,8 +8,10 @@ function WildPokemonCard({ pokemon, equation }) {
     }
     return (
         <div className="encounterArea">
-            <h1>Encounter</h1>
-            <div className="pokemonCard">
+            
+           <h1>Encounter</h1>
+                <div className="pokemonCard">  
+               
                 <h2 className="pokemonClass">{pokemon.name} {pokemon.id}</h2>
                 <div className="pokemonImg">
                     <img alt="sprite" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />
@@ -20,7 +23,9 @@ function WildPokemonCard({ pokemon, equation }) {
                     </div>
 
                 </div>
-            </div>
+            
+          </div>
+            
         </div>
     )
 }

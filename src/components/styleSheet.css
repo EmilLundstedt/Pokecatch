@@ -18,6 +18,24 @@ header {
     color: rgb(240, 106, 106);
     text-shadow: rgb(129, 54, 54) 0px 3px;
 }
+
+.rule {
+   
+    border: 2px solid black;
+    width: 60%;
+    margin:auto;
+}
+.remover {
+    
+    width: 100px;
+    height:100px;
+}
+.remover button {
+background-color: rgba(231, 120, 120, 0.637);
+font-size: 20px;
+margin: 10px;
+
+}
 .equationField h2 {
     color: black;
 }
@@ -35,7 +53,7 @@ header {
     justify-content: center;
     flex-direction: column;
     margin-top: 40px;
-    margin-bottom: 40px;
+   
     align-items: center;
     max-height: 20%;
 
@@ -46,6 +64,16 @@ header {
     color: rgb(255, 255, 255);
     box-shadow: 0px 0px 5px 5px rgba(161, 161, 161, 0.863);
 }
+
+.pokemonCard {
+    
+    padding: 10px;
+    
+    
+    margin-bottom: 60px;
+}
+
+
 .encounterArea,
 h2 {
     color: rgb(230, 213, 213);
@@ -81,12 +109,7 @@ h2 {
     border-radius: 50%;
 }
 
-.pokemonCard {
-    padding: 10px;
-    border-top: rgb(255, 255, 255) solid 6px;
 
-    margin-bottom: 60px;
-}
 
 @keyframes fadeIn {
     0% {
@@ -228,25 +251,11 @@ input {
     font-size: 40px;
 }
 
-.progress-bar {
-    height: 15px;
-    background: #e45858;
-
-    width: 300px;
-}
-
-.progress-bar-fill {
-    display: block;
-    height: 15px;
-    width: 0px;
-    background: #5ac55a;
-}
 
 .container {
     margin-top: 40px;
     color: rgb(12, 12, 12);
     font-size: 45px;
 }
-.container button {
-    background-color: rgba(168, 165, 165, 0.527);
-}
+
+

@@ -72,12 +72,13 @@ function PokemonList() {
 
     return (
         <div>
+            
             <EncounterPokemon pokeDex={pokeDex} setPokeDex={setPokeDex} count={count} loaded={Loaded} />
 
             <div className="container">
                 <h1> {count} / 151 </h1>
-                <h2 className="timer"> Time: {Timer} </h2>
-                <div>
+                <h2 className="timer"> {Timer} </h2>
+                <div className="remover">
                     <button className="button" onClick={() => setDisplay(!display)}> Toggle PokeDex</button>
                 </div>
                 {display ? <PokeDex list={listPokemons()} /> : ""}
