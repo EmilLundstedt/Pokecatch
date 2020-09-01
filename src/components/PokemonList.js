@@ -9,6 +9,18 @@ function PokemonList() {
     const [count, setCount] = useState(0)
     const [display, setDisplay] = useState(true);
     const [Loaded, setLoaded] = useState(false);
+    const [Timer, setTimer] = useState(0);
+
+    const tick = () => {
+        setTimer(prevCount => prevCount +1)
+    }
+
+    useEffect(() => {
+        const interval = setInterval(tick,1000)
+        return () => {
+            clearInterval(interval)
+        }
+      }, [Timer])
 
     useEffect(() => {
 
@@ -72,6 +84,7 @@ function PokemonList() {
         
             <div className="container">
             <h1> {count} / 152 </h1>
+            <h2 className="timer"> Time: {Timer} </h2>
                 <div>
                     <button className="button" onClick={() => setDisplay(!display)}> Toggle PokeDex</button>
                     
