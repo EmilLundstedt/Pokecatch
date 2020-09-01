@@ -57,10 +57,10 @@ function EncounterPokemon({ pokeDex, setPokeDex, count, loaded }) {
     //Get Math function to solve
     const getMathFunction = () => {
         resetFieldFocusInput()
-        const val1 = Math.floor(Math.random() * 9) + count + 1
-        const val2 = Math.floor(Math.random() * 9) + count + 1
+        const val1 = Math.floor(Math.random() * 9) + count +1
+        const val2 = Math.floor(Math.random() * 9) + count +1
         const summary = val1 + val2;
-        setequation({ string: val1 + "+" + val2, summary: summary })
+        setequation({ string: val1 + "+" + val2 + "", summary: summary })
     }
 
 

@@ -33,18 +33,7 @@ header {
     font-size: 20px;
     margin: 10px;
 }
-.equationField h2 {
-    color: black;
-}
-.equationField .textfield {
-    font-weight: bold;
-}
-.equationField .textfield:focus {
-    border-bottom: 1px solid #03a9f4;
-    -webkit-box-shadow: 0 1px 0 0 #03a9f4;
-    -moz-box-shadow: 0 1px 0 0 #03a9f4;
-    box-shadow: 0 1px 0 0 #03a9f4;
-}
+
 .encounterArea {
     display: flex;
     justify-content: center;
@@ -138,15 +127,16 @@ h2 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: rgba(68, 108, 172, 0.801);
+    
+    
 }
 .pokedexCard {
-    font-size: 10px;
+    font-size: 8px;
     background-color: rgb(211, 209, 209);
-    border: 2px solid black;
-    margin: 5px;
-    max-width: 100px;
-    min-height: 100px;
+    border: 1px solid black;
+    margin:1px;
+    max-width: 120px;
+    min-height: 120px;
 }
 .pokedexCard img {
     min-width: 100px;
@@ -171,22 +161,11 @@ input {
 .main {
     position: relative;
 }
-.correct {
-    position: absolute;
-    z-index: 1;
-    top: 30%;
-    left: 25%;
-    transform: rotateY(0deg) rotate(-45deg);
-    width: 50%;
-    height: 100px;
-    display: block;
-    animation: fadeOut 2s;
-}
 
 .button {
-    background-color: #79db68;
+    background-color: #7bbe6f;
     border: none;
-    color: rgb(241, 235, 235);
+    color: rgb(255, 255, 255);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -201,25 +180,20 @@ input {
     background-color: #90b38a;
 }
 
-.correct h2 {
-    color: rgb(92, 195, 92);
-    text-shadow: -4px 0 rgb(255, 255, 255), 0 4px rgb(255, 255, 255), 4px 0 rgb(255, 255, 255),
-        0 -4px rgb(255, 255, 255);
-    font-size: 100px;
-}
 
 .box {
-    width: 150px;
+   
+    width: 200px;
+    height:50px;
     margin: 50px;
     background: #ffffff;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     text-align: center;
-    font-weight: 1200;
     color: rgb(0, 0, 0);
     font-family: arial;
     position: relative;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .sb4:before {
