@@ -3,7 +3,7 @@ import './styleSheet.css'
 
 function WildPokemonCard({ pokemon, equation }) {
     if(pokemon.id === undefined){
-        return "Loading..."
+        return "Loading pokemons..."
     }
     return (
         <div className="encounterArea">

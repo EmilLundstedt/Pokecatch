@@ -12,15 +12,15 @@ function PokemonList() {
     const [Timer, setTimer] = useState(0);
 
     const tick = () => {
-        setTimer(prevCount => prevCount +1)
+        setTimer(prevCount => prevCount + 1)
     }
 
     useEffect(() => {
-        const interval = setInterval(tick,1000)
+        const interval = setInterval(tick, 1000)
         return () => {
             clearInterval(interval)
         }
-      }, [Timer])
+    }, [Timer])
 
     useEffect(() => {
 
@@ -29,25 +29,19 @@ function PokemonList() {
     }, [])
 
     useEffect(() => {
-       
+
         for (var i = 0; i < pokeDex.length; i++) {
             if (pokeDex[i].isCaught == true) {
                 setCount(count + 1)
             }
         }
-    
+
     }, [pokeDex])
 
-    useEffect(() => {
-        if (Loaded){
-            console.log(Loaded)
-
-        }
-    }, [Loaded])
 
     // API call to fetch the pokemons---
-    function createPokeDex () {
-        
+    function createPokeDex() {
+
         const addToPokeDex = (newObj) => setPokeDex(pokeDex => [...pokeDex, newObj])
         let id = 0;
         axios
@@ -56,12 +50,11 @@ function PokemonList() {
                 response.data.results.map((pokemon) => {
                     id++;
                     const newObj = { id: id, name: pokemon.name, isCaught: false }
-                   
                     return addToPokeDex(newObj)
                 })
                 setLoaded(true)
             })
- 
+
     }
 
     //Map through PokeDex and list them as items.
@@ -77,22 +70,20 @@ function PokemonList() {
         return listItems
     }
 
-
     return (
         <div>
             <EncounterPokemon pokeDex={pokeDex} setPokeDex={setPokeDex} count={count} loaded={Loaded} />
-        
+
             <div className="container">
-            <h1> {count} / 152 </h1>
-            <h2 className="timer"> Time: {Timer} </h2>
+                <h1> {count} / 151 </h1>
+                <h2 className="timer"> Time: {Timer} </h2>
                 <div>
                     <button className="button" onClick={() => setDisplay(!display)}> Toggle PokeDex</button>
-                    
                 </div>
-                 {display? <PokeDex list={listPokemons()}/> : ""}
+                {display ? <PokeDex list={listPokemons()} /> : ""}
             </div>
-           
-            
+
+
         </div>
     )
 }

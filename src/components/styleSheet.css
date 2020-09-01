@@ -13,8 +13,6 @@ h2 {
     margin: 0px;
 }
 
-
-
 header {
     font-size: 40px;
     color: rgb(240, 106, 106);
@@ -53,7 +51,7 @@ h2 {
     color: rgb(230, 213, 213);
     font-size: 25px;
 }
-.timer{
+.timer {
     color: black;
 }
 .encounterArea h4 {
@@ -126,7 +124,6 @@ h2 {
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: rgba(68, 108, 172, 0.801);
-   
 }
 .pokedexCard {
     font-size: 10px;
@@ -139,11 +136,9 @@ h2 {
 .pokedexCard img {
     min-width: 100px;
     border-top: black solid 2px;
-    
 }
 .pokedexCard .true {
     animation: brightIn 2s;
-    
 }
 .pokedexCard .false {
     filter: brightness(0%);
@@ -156,6 +151,7 @@ input {
     font-size: 33px;
     outline: none;
     border: none;
+    border-bottom: rgb(146, 134, 134) solid 4px;
 }
 .main {
     position: relative;
@@ -183,7 +179,7 @@ input {
     outline: none;
     font-weight: bold;
     letter-spacing: 4px;
-    margin:20px;
+    margin: 20px;
 }
 
 .button:focus {
@@ -246,16 +242,11 @@ input {
     background: #5ac55a;
 }
 
-.container{
-    
-    
+.container {
     margin-top: 40px;
     color: rgb(12, 12, 12);
     font-size: 45px;
 }
-.container button{
-
+.container button {
     background-color: rgba(168, 165, 165, 0.527);
-   
-    
 }
