@@ -5,9 +5,9 @@ import PokemonList from './PokemonList'
 function MainPage() {
     
     return (
-        <div >
+        <React.Fragment>
             <PokemonList />
-        </div>
+        </React.Fragment>
     )
 }
 

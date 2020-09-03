@@ -2,7 +2,7 @@ html {
     background-color: rgb(227, 227, 248);
     margin: auto;
     letter-spacing: 2px;
-
+    text-align: center;
     text-transform: uppercase;
     font-style: Courier;
     height: 100%;

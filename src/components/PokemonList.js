@@ -31,7 +31,7 @@ function PokemonList() {
     useEffect(() => {
 
         for (var i = 0; i < pokeDex.length; i++) {
-            if (pokeDex[i].isCaught == true) {
+            if (pokeDex[i].isCaught === true) {
                 setCount(count + 1)
             }
         }

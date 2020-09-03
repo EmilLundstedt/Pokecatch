@@ -42,8 +42,8 @@ function EncounterPokemon({ pokeDex, setPokeDex, count, loaded }) {
     function EncounterNewPokemon() {
         
         getMathFunction()
-        var randomNum = (Math.floor(Math.random() * 151) + 1)
-        var encountered = pokeDex.find(pokemonList => pokemonList.id === randomNum)
+        let randomNum = (Math.floor(Math.random() * 151) + 1)
+        let encountered = pokeDex.find(pokemonList => pokemonList.id === randomNum)
         while (encountered.isCaught) {
             randomNum = (Math.floor(Math.random() * 151) + 1)
             encountered = pokeDex.find(pokemonList => pokemonList.id === randomNum)
