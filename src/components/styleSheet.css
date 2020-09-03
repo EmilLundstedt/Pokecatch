@@ -228,4 +228,37 @@ input {
     font-size: 20px;
 }
 
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
 
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(173, 113, 113); 
+  }
+  
+.modal {
+   
+    padding: 20px;
+    overflow-y: scroll;
+    margin:auto;
+    background-color: rgb(134, 134, 151);
+    position: fixed;
+    max-width: 60%;
+    max-height: 60%;
+    min-width:350px;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
