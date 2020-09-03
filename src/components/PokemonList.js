@@ -81,7 +81,7 @@ function PokemonList() {
                 
                     <button className="button" onClick={() => setDisplay(!display)}> Toggle PokeDex</button>
                 
-                {display ? <PokeDex list={listPokemons()} /> : ""}
+                {display ? <PokeDex list={listPokemons()} />  : ""}
             </div>
 
 
