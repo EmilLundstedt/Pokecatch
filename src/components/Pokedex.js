@@ -1,15 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Pokedex(props) {
-
-
-    return (
-        <div className="modal">
-            <div className="pokedex">
-                {props.list}
-            </div>
-        </div>
-    )
+  return (
+    <div className="modal">
+      <div className="pokedex">{props.list}</div>
+    </div>
+  );
 }
 
-export default Pokedex
+export default Pokedex;
